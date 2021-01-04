@@ -198,6 +198,26 @@
 #define LTDC_GCR_VSPOL              (1 << 30) /* Bit 30:  Vertical Sync Polarity */
 #define LTDC_GCR_HSPOL              (1 << 31) /* Bit 31:  Horizontal Sync Polarity */
 
+#define LTDC_GCR_PCPOL_IPC          ((uint32_t)0x00000000)     /*Input pixel clock*/
+#define LTDC_GCR_PCPOL_IIPC         ((uint32_t)LTDC_GCR_PCPOL) /*Inverted Input pixel clock*/
+#define IS_LTDC_PCPOL(PCPOL)        (((PCPOL) ==  LTDC_PCPolarity_IPC) || \
+                                     ((PCPOL) ==  LTDC_PCPolarity_IIPC))
+
+#define LTDC_GCR_DEPOL_AL           ((uint32_t)0x00000000)     /* Data Enable is active LOW */
+#define LTDC_GCR_DEPOL_AH           ((uint32_t)LTDC_GCR_DEPOL) /* Data Enable is active HIGH */
+#define IS_LTDC_DEPOL(DEPOL)        (((DEPOL) ==  LTDC_VSPolarity_AL) || \
+                                     ((DEPOL) ==  LTDC_DEPolarity_AH))
+
+#define LTDC_GCR_VSPOL_AL           ((uint32_t)0x00000000)                /*!< Vertical Synchronization is active low. */
+#define LTDC_GCR_VSPOL__AH          ((uint32_t)LTDC_GCR_VSPOL)            /*!< Vertical Synchronization is active high. */
+#define IS_LTDC_VSPOL(VSPOL)        (((VSPOL) == LTDC_VSPolarity_AL) || \
+                                     ((VSPOL) == LTDC_VSPolarity_AH))
+
+#define LTDC_GCR_HSPOL_AL           ((uint32_t)0x00000000)                /*!< Horizontal Synchronization is active low. */
+#define LTDC_GCR_HSPOL_AH           ((uint32_t)LTDC_GCR_HSPOL)                        /*!< Horizontal Synchronization is active high. */
+#define IS_LTDC_HSPOL(HSPOL)        (((HSPOL) == LTDC_HSPolarity_AL) || \
+                                     ((HSPOL) == LTDC_HSPolarity_AH))
+
 /* LTDC Shadow Reload Configuration Register */
 
 #define LTDC_SRCR_IMR               (1 << 0)  /* Bit 0:  Immediate Reload */
