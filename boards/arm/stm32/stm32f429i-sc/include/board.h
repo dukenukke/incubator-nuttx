@@ -194,6 +194,7 @@
  */
 
 #define SDIO_INIT_CLKDIV        (0x76 << SDIO_CLKCR_CLKDIV_SHIFT) //118
+#define DMAMAP_SDIO             DMAMAP_SDIO_2
 
 /* DMA ON:  SDIOCLK=48MHz, SDIO_CK=SDIOCLK/(1 + 2)=16 MHz
  * DMA OFF: SDIOCLK=48MHz, SDIO_CK=SDIOCLK/(2 + 2)=12 MHz
@@ -284,19 +285,13 @@
  * configured to output a pulse train using TIM8 CH3N on PB15.
  */
 
-#define GPIO_TIM8_CH3N GPIO_TIM8_CH3N_2
-
-#define GPIO_TIM1_CH1OUT  GPIO_TIM1_CH1OUT_2 /* PE9 */
-#define GPIO_TIM1_CH1NOUT GPIO_TIM1_CH1N_3   /* PE8 */
-#define GPIO_TIM1_CH2OUT  GPIO_TIM1_CH2OUT_2 /* PE11 */
-#define GPIO_TIM1_CH2NOUT GPIO_TIM1_CH2N_3   /* PE10 */
-#define GPIO_TIM1_CH3OUT  GPIO_TIM1_CH3OUT_2 /* PE13 */
-#define GPIO_TIM1_CH3NOUT GPIO_TIM1_CH3N_3   /* PE12 */
+#define GPIO_TIM3_CH4OUT  GPIO_TIM3_CH4OUT_1    /* PB1 */
+#define GPIO_TIM8_CH3NOUT GPIO_TIM8_CH3N_2
 
 /* I2C - There is a STMPE811 TouchPanel on I2C3 using these pins: */
 
-#define GPIO_I2C3_SCL GPIO_I2C3_SCL_1
-#define GPIO_I2C3_SDA GPIO_I2C3_SDA_1
+#define GPIO_I2C2_SCL GPIO_I2C2_SCL_3
+#define GPIO_I2C2_SDA GPIO_I2C2_SDA_3
 
 
 /* Touch screen (ADS7843) IRQ pin:  PB.6 */
@@ -457,5 +452,10 @@
 /* DMA ******************************************************************************/
 
 #define ADC1_DMA_CHAN DMAMAP_ADC1_1
+
+/* SOUND ****************************************************************************/
+#define BOARD_TONE_PWM_TIM ( 3 )
+#define BOARD_TONE_ONESHOT_TIM ( 1 )
+#define BOARD_TONE_ONESHOT_TIM_RES ( 1000 )
 
 #endif /* __BOARDS_ARM_STM32_STM32F429I_SC_INCLUDE_BOARD_H */

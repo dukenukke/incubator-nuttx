@@ -100,7 +100,7 @@
  *
  ****************************************************************************/
 
-#if !defined(CONFIG_ARMV7M_SYSTICK) && !defined(CONFIG_TIMER_ARCH)
+#if (!defined(CONFIG_ARMV7M_SYSTICK) && !defined(CONFIG_TIMER_ARCH))
 static int stm32_timerisr(int irq, uint32_t *regs, void *arg)
 {
   /* Process timer interrupt */

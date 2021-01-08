@@ -56,6 +56,10 @@
  * Pre-processor Definitions
  ****************************************************************************/
 
+#ifndef OK
+#  define OK 0
+#endif
+
 #if !defined(CONFIG_STM32_SPI4)
 #error CONFIG_STM32_SPI4 must be defined to use the ADS7843 on this board
 #endif

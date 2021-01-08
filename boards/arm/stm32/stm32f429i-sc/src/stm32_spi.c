@@ -78,17 +78,28 @@ FAR struct spi_dev_s *g_spidev5 = NULL;
 
 void weak_function stm32_spidev_initialize(void)
 {
-#ifdef CONFIG_STM32_SPI5
-  stm32_configgpio(GPIO_CS_MEMS);    /* MEMS chip select */
-  stm32_configgpio(GPIO_CS_LCD);     /* LCD chip select */
-  stm32_configgpio(GPIO_LCD_DC);     /* LCD Data/Command select */
-  stm32_configgpio(GPIO_LCD_ENABLE); /* LCD enable select */
-#endif
-#if defined(CONFIG_STM32_SPI4) && defined(CONFIG_MTD_SST25XX)
-  stm32_configgpio(GPIO_CS_SST25);   /* SST25 FLASH chip select */
+
+#if defined CONFIG_STM32_SPI4
+  stm32_configgpio(GPIO_CS_TS);   /* SST25 FLASH chip select */
 #endif
 }
 
+/****************************************************************************
+ * Name: stm32_spi1register
+ *
+ * Description:
+ *   Registers media change callback
+ ****************************************************************************/
+
+#if defined CONFIG_STM32_SPI4
+int stm32_spi4register(struct spi_dev_s *dev, spi_mediachange_t callback,
+                       void *arg)
+{
+  /* TODO: media change callback */
+
+  return OK;
+}
+#endif
 /****************************************************************************
  * Name:  stm32_spi1/2/3/4/5select and stm32_spi1/2/3/4/5status
  *

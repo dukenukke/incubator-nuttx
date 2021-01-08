@@ -68,16 +68,16 @@
  *   The setting CONFIG_BOARD_LOOPSPERMSEC has been calibrated
  *
  ****************************************************************************/
-
+/*
 void up_udelay(useconds_t microseconds)
 {
   volatile int i;
 
-  /* We'll do this a little at a time because we expect that the
-   * CONFIG_BOARD_LOOPSPERUSEC is very inaccurate during to truncation in
-   * the divisions of its calculation.  We'll use the largest values that
-   * we can in order to prevent significant error buildup in the loops.
-   */
+  // We'll do this a little at a time because we expect that the
+  // CONFIG_BOARD_LOOPSPERUSEC is very inaccurate during to truncation in
+  // the divisions of its calculation.  We'll use the largest values that
+  // we can in order to prevent significant error buildup in the loops.
+  //
 
   while (microseconds > 1000)
     {
@@ -115,3 +115,4 @@ void up_udelay(useconds_t microseconds)
       microseconds--;
     }
 }
+*/
